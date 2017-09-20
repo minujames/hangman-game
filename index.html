@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <title>Hangman game</title>
+  <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+<body onload="reset()">
+<div class="container">
+  <div class="row">
+    <div class="col-md-12"></div>
+      <div class="page-header">
+        <h2>Hangman</h2>
+      </div>
+      <h4>Press any key to get started</h4>
+      <br>
+      
+
+      <p>WINS: <section id="wins-count"></section></p>
+      <p>Current Word: <section id="current-word"></section> </p>
+      <p>Number of guesses remaining <section id="remaining-guesses"></section></p>
+      <p>Letters already guessed <section id="letters-guessed"></section></p>
+
+    </div>
+  </div>
+</div>
+
+<!-- linking javascript file -->
+<script type="text/javascript" src="assets/javascript/game.js"></script>
+</body>
+</html>
