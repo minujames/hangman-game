@@ -1,73 +1,80 @@
-
-var animalList = ['ALLIGATOR', 'BULLDOG', 'BUTTERFLY', 'CHEETAH', 'CHAMELEON', 'CHIMPANZEE', 'CROCODILE',
-                'DALMATIAN', 'DONKEY'];
-
-var currentWord = '';
-
-var wins = 0;
-var lettersGuessed =[];
-var remainingGuesses = 0;
-var placeHolderWord = ''; 
-
-var guessBuffer = 5;
-var placeHolderCharacter = '_';
-
 var winsText = document.getElementById("wins-count");
 var currentWordText = document.getElementById("current-word");
 var remainingGuessesText = document.getElementById("remaining-guesses");
 var lettersGuessedText = document.getElementById("letters-guessed");
 
-function initialize()
-{
-  reset();
-  writeToDocument();
-}
+var hangMan = {
 
-function reset()
-{
-  lettersGuessed = [];
-  currentWord = getRandomAnimal();
-  remainingGuesses = currentWord.length + guessBuffer;
-  placeHolderWord =  placeHolderCharacter.repeat(currentWord.length);
+  animalList: ['ALLIGATOR', 'BULLDOG', 'BUTTERFLY', 'CHEETAH', 'CHAMELEON', 'CHIMPANZEE', 'CROCODILE',
+              'DALMATIAN', 'DONKEY'],
+  
+  currentWord: '',
 
-  console.log("current word: " + currentWord);
-}
+  wins: 0,
+  lettersGuessed: [],
+  remainingGuesses: 0,
+  placeHolderWord: '',
 
-function writeToDocument()
-{
-  winsText.textContent = wins;
-  remainingGuessesText.textContent = remainingGuesses;
-  lettersGuessedText.textContent = lettersGuessed.join(" ");
-  currentWordText.textContent = placeHolderWord.split('').join (" ");
-  console.log("placeHolderWord: " + placeHolderWord);
-}
+  guessBuffer: 5,
+  placeHolderCharacter: '_',
 
-function getRandomAnimal(){
-   return animalList[Math.floor(Math.random() * animalList.length)];
-}
+  initialize: function() {
+    this.reset();
+    reWriteDocument();
+  },
 
-function getMatchingIndexesArray(letter){
-  var indexArray = [];
-  var index = currentWord.indexOf(letter);
-  if(index !== -1 )
-  {
-    indexArray.push(index);
-    while (index >= 0) {
-      index = currentWord.indexOf(letter, index + 1);
-      if(index !== -1)
-      {
-        indexArray.push(index);
+  reset: function(){
+    this.lettersGuessed = [];
+    this.currentWord = this.animalList[Math.floor(Math.random() * this.animalList.length)];
+    this.remainingGuesses = this.currentWord.length + this.guessBuffer;
+    this.placeHolderWord =  this.placeHolderCharacter.repeat(this.currentWord.length);
+
+    console.log("current word: " + this.currentWord);
+  },
+
+  evaluateUserInput: function(guessedLetter){
+    if(this.lettersGuessed.indexOf(guessedLetter) == -1){
+      if(this.currentWord.includes(guessedLetter)){
+
+        var charArray = this.placeHolderWord.split('');
+        for(var i=0; i< this.currentWord.length; i++){
+          if(this.currentWord[i] === guessedLetter){
+            charArray[i] = guessedLetter;
+          }
+        }
+        this.placeHolderWord = charArray.join('');
+
+        if(!(this.placeHolderWord.includes(this.placeHolderCharacter))) {
+            this.wins++;
+            this.reset();
+        }
       }
+      else{
+        this.remainingGuesses--;
+        if(this.remainingGuesses === 0){
+          this.reset();
+        }
+        else{
+          this.lettersGuessed.push(guessedLetter);
+        }
+      }
+      reWriteDocument();
     }
   }
-  
-  console.log("index array: " + indexArray);
-  return indexArray;
+};
+
+hangMan.initialize();
+
+function reWriteDocument(){
+  winsText.textContent = hangMan.wins;
+  currentWordText.textContent = hangMan.placeHolderWord.split('').join (" ");
+  remainingGuessesText.textContent = hangMan.remainingGuesses;
+  lettersGuessedText.textContent = hangMan.lettersGuessed.join(" ");
+  console.log("placeHolderWord: " + hangMan.placeHolderWord);
 }
 
 // This function is run whenever the user presses a key.
-document.onkeyup = function(event) 
-{
+document.onkeyup = function(event) {
   // Determines which key was pressed.
   var guessedCharacter = event.key;
   console.log("guessedCharacter: " + guessedCharacter);
@@ -77,40 +84,7 @@ document.onkeyup = function(event)
   {
     var guessedLetter = guessedCharacter.toUpperCase();
     console.log("guessedLetter: "+ guessedLetter);
-    if(lettersGuessed.indexOf(guessedLetter) == -1)
-    {
-      if(currentWord.includes(guessedLetter))
-      {  
-        var matchingIndexesArray = getMatchingIndexesArray(guessedLetter);
-        var charArray = placeHolderWord.split('');
-        for (var i=0; i<matchingIndexesArray.length; i++)
-        {
-          var index = matchingIndexesArray[i];
-          console.log("index: " + index); 
-          charArray[index] = guessedLetter;
-        }
-        placeHolderWord = charArray.join('');
-        if(!(placeHolderWord.includes(placeHolderCharacter)))
-        {
-            wins++;
-            reset();
-        }
-      }
-      else
-      {
-        remainingGuesses--;
-        if(remainingGuesses == 0)
-        {
-          reset();
-        }
-        else
-        {
-          lettersGuessed.push(guessedLetter);
-        }
-      }
-      writeToDocument();
-    }
+
+    hangMan.evaluateUserInput(guessedLetter);
   }
 }
-
-

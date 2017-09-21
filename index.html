@@ -5,24 +5,29 @@
   <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Covered+By+Your+Grace|Gentium+Basic|Permanent+Marker" rel="stylesheet">
 </head>
-<body onload="initialize()">
-<div class="container">
+<body style="min-height: 100%; height: 100%">
+<div class="container style="min-height: 100%; height: 100%">
   <div class="row">
-    <div class="col-md-12"></div>
-      <div class="page-header">
-        <h2>Hangman</h2>
-      </div>
-      <h4>Press any key to get started</h4>
-      <br>
-      
-
-      <p>WINS: <section id="wins-count"></section></p>
+    <div class="col-md-12" style="background-color: white">
+      <img id="banner" src="assets/images/safari.jpg">
+    </div>
+  </div>
+  <div class="row" style="min-height: 100%" >
+    <div class="col-md-6" style="clear: both; min-height: 100%">
+      <p class="game-title">Safari Hangman</p>
       <p>Current Word: <section id="current-word"></section> </p>
       <p>Number of guesses remaining <section id="remaining-guesses"></section></p>
       <p>Letters already guessed <section id="letters-guessed"></section></p>
-
     </div>
+
+    <div class="col-md-6" style=" min-height: 100%">
+      <h4>Press any letter to get started</h4>
+      <p class="result">WINS: <span id="wins-count"></span></p>
+      <img id="jungle-img" class="thumbnail" src="assets/images/emptyJungle.jpeg">    
+    </div>
+    
   </div>
 </div>
 

@@ -1,10 +1,41 @@
 
 
 body{
-  font-size: 20px;
+  font-family: 'Gentium Basic', serif;
+  font-weight: bold;
+  font-size: 25px;
+  color: grey;
+}
+
+h4{
+  font-family: 'Covered By Your Grace', cursive;
+}
+
+#banner{
+  width: 100%;
+  height: auto;
 }
 
 #container{
   text-align: center;
   background-color: red;
+}
+
+.game-title{
+  font-family: 'Covered By Your Grace', cursive;    
+  font-size: 80px;
+  color: green;
+}
+p.result{
+  /*font-family: 'Permanent Marker', cursive;*/
+  font-family: 'Covered By Your Grace', cursive;
+  font-size: 50px;
+  color: orange;
+}
+
+#jungle-img{
+  width: 100%;
+  height: auto;
+  padding-top: auto;
+  border: none;
 }
