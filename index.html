@@ -7,29 +7,35 @@
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
   <link href="https://fonts.googleapis.com/css?family=Covered+By+Your+Grace|Gentium+Basic|Permanent+Marker" rel="stylesheet">
 </head>
-<body style="min-height: 100%; height: 100%">
-<div class="container style="min-height: 100%; height: 100%">
+<body>
+<div class="container">
   <div class="row">
-    <div class="col-md-12" style="background-color: white">
+    <div class="col-md-12">
       <img id="banner" src="assets/images/safari.jpg">
+      <!-- <audio src="sounds/forest.mp3" autoplay="autoplay" loop="loop"></audio> -->
     </div>
   </div>
-  <div class="row" style="min-height: 100%" >
-    <div class="col-md-6" style="clear: both; min-height: 100%">
+  <div class="row">
+    <div class="col-md-6">
       <p class="game-title">Safari Hangman</p>
       <p>Current Word: <section id="current-word"></section> </p>
-      <p>Number of guesses remaining <section id="remaining-guesses"></section></p>
-      <p>Letters already guessed <section id="letters-guessed"></section></p>
+      <p>Number of guesses remaining: <section id="remaining-guesses"></section></p>
+      <p>Letters already guessed: <section id="letters-guessed"></section></p>
     </div>
 
-    <div class="col-md-6" style=" min-height: 100%">
-      <h4>Press any letter to get started</h4>
+    <div class="col-md-6">
+      <h3>Press any letter to play the game</h3>
       <p class="result">WINS: <span id="wins-count"></span></p>
-      <img id="jungle-img" class="thumbnail" src="assets/images/emptyJungle.jpeg">    
+      <div id="img-div">
+        <img class="thumbnail animal-image" src="assets/images/jungle.jpg">    
+      </div> 
     </div>
-    
   </div>
 </div>
+
+<audio autoplay id="audio">
+  <source src="assets/sounds/forest.mp3" type="audio/mpeg">
+</audio>
 
 <!-- linking javascript file -->
 <script type="text/javascript" src="assets/javascript/game.js"></script>

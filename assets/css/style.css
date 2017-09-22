@@ -7,7 +7,7 @@ body{
   color: grey;
 }
 
-h4{
+h3{
   font-family: 'Covered By Your Grace', cursive;
 }
 
@@ -18,7 +18,6 @@ h4{
 
 #container{
   text-align: center;
-  background-color: red;
 }
 
 .game-title{
@@ -27,15 +26,21 @@ h4{
   color: green;
 }
 p.result{
-  /*font-family: 'Permanent Marker', cursive;*/
+  
   font-family: 'Covered By Your Grace', cursive;
   font-size: 50px;
   color: orange;
 }
 
-#jungle-img{
+.animal-image{
   width: 100%;
   height: auto;
   padding-top: auto;
   border: none;
+}
+
+.errorMsg{
+  font-family: 'Permanent Marker', cursive;
+  font-size: 40px;
+  color: red;
 }
