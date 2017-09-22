@@ -1,12 +1,11 @@
 # Safari Hangman
-This is a hangman game in Animal Safari theme. Animals names are the words to guess.
+This is a hangman game in Animal Safari theme. Animal names are the words to guess.
 The users can start playing game by pressing any letter.
 
 ### Features
-
 * For every word, there are (word length + 5) guessing options
 * For every correct guess, animal image is shown with a victory sound.
-* For every lose, corresponding image and sounds are displayed
+* For every lose, corresponding image and sound are displayed
 
 
 ## Built With

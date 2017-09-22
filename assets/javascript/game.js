@@ -4,7 +4,6 @@ var winsText = document.getElementById("wins-count");
 var currentWordText = document.getElementById("current-word");
 var remainingGuessesText = document.getElementById("remaining-guesses");
 var lettersGuessedText = document.getElementById("letters-guessed");
-// var jungleImage = document.getElementById("jungle-img");
 var imageDiv = document.getElementById("img-div");
 
 // variables to hold the images/sound file urls
