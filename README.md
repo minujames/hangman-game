@@ -14,7 +14,7 @@ The users can start playing game by pressing any letter.
 * [CSS](https://www.w3schools.com/css/)
 
 ## Deployment
-The portfolio website is accessible at https://minujames.github.io/hangman-game/
+The safari hangman website is accessible at https://minujames.github.io/hangman-game/
 
 ## Author
 [Minu James](https://minujames.github.io/)
